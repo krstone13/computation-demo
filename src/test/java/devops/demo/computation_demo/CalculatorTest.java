@@ -49,7 +49,11 @@ public class CalculatorTest {
 				Arguments.of(100, 2, 102),
 				Arguments.of(100, -2, 98),
 				Arguments.of(-100, 2, -98),
-				Arguments.of(-100, -2, -102)
+				Arguments.of(-100, -2, -102),
+				Arguments.of(50, 2, 52),
+				Arguments.of(50, -2, 48),
+				Arguments.of(-50, 2, -48),
+				Arguments.of(-50, -2, -52)
 				);
 					
 	}
@@ -70,7 +74,11 @@ public class CalculatorTest {
 		"100, 2, 98",
 		"100, -2, 102",
 		"-100, 2, -102",
-		"-100, -2, -98"
+		"-100, -2, -98",
+		"50, 2, 48",
+		"50, -2, 52",
+		"-50, 2, -52",
+		"-50, -2, -48"
 	})
 	public void substract_twoNumbers(int a, int b, int expected) {
 		Calculator calculator = new Calculator();
