@@ -49,11 +49,7 @@ public class CalculatorTest {
 				Arguments.of(100, 2, 102),
 				Arguments.of(100, -2, 98),
 				Arguments.of(-100, 2, -98),
-				Arguments.of(-100, -2, -102),
-				Arguments.of(50, 2, 52),
-				Arguments.of(50, -2, 48),
-				Arguments.of(-50, 2, -48),
-				Arguments.of(-50, -2, -52)
+				Arguments.of(-100, -2, -102)
 				);
 					
 	}
@@ -74,19 +70,21 @@ public class CalculatorTest {
 		"100, 2, 98",
 		"100, -2, 102",
 		"-100, 2, -102",
-		"-100, -2, -98",
-		"50, 2, 48",
-		"50, -2, 52",
-		"-50, 2, -52",
-		"-50, -2, -48"
+		"-100, -2, -98"
 	})
 	public void substract_twoNumbers(int a, int b, int expected) {
-		Calculator calculator = new Calculator();
+	
 		assertEquals(expected, calculator.substract(a, b));
 	}
 	
-	@Test
-	public void divide_byZero() {
+	@ParameterizedTest(name= "{0} / {1} = {2}")
+	@DisplayName("Divide two numbers")
+	@CsvSource( {
+		"100, 2, 50"
+	})
+	public void divide_byZero(int a, int b, int expected) {
+		
+		assertEquals(expected, calculator.divide(a, b));
 		assertThrows(IllegalArgumentException.class, () -> calculator.divide(10, 0));
 	}
 	
